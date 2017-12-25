@@ -1,0 +1,8 @@
+D:\Projecten\Lijsterhof_LocalProxy\bin\LocalProxy.dll.config
+D:\Projecten\Lijsterhof_LocalProxy\bin\LocalProxy.dll
+D:\Projecten\Lijsterhof_LocalProxy\bin\LocalProxy.pdb
+D:\Projecten\Lijsterhof_LocalProxy\bin\Newtonsoft.Json.dll
+D:\Projecten\Lijsterhof_LocalProxy\bin\Newtonsoft.Json.xml
+D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\LocalProxy.csproj.CoreCompileInputs.cache
+D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\LocalProxy.dll
+D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\LocalProxy.pdb

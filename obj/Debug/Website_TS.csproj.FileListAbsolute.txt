@@ -1,0 +1,9 @@
+D:\Projecten\Lijsterhof_LocalProxy\bin\Website_TS.dll.config
+D:\Projecten\Lijsterhof_LocalProxy\bin\Website_TS.dll
+D:\Projecten\Lijsterhof_LocalProxy\bin\Website_TS.pdb
+D:\Projecten\Lijsterhof_LocalProxy\bin\Newtonsoft.Json.dll
+D:\Projecten\Lijsterhof_LocalProxy\bin\Newtonsoft.Json.xml
+D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\Website_TS.csprojResolveAssemblyReference.cache
+D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\Website_TS.csproj.CoreCompileInputs.cache
+D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\Website_TS.dll
+D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\Website_TS.pdb
