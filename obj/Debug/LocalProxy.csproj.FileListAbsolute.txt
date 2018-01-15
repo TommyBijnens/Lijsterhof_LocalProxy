@@ -6,4 +6,3 @@ D:\Projecten\Lijsterhof_LocalProxy\bin\Newtonsoft.Json.xml
 D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\LocalProxy.csproj.CoreCompileInputs.cache
 D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\LocalProxy.dll
 D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\LocalProxy.pdb
-D:\Projecten\Lijsterhof_LocalProxy\obj\Debug\LocalProxy.csprojResolveAssemblyReference.cache

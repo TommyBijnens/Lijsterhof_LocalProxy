@@ -121,6 +121,14 @@ namespace Website_TS
             return result;
         }
 
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetServiceString/{serviceString}", ResponseFormat = WebMessageFormat.Json)]
+        public string GetServiceString(string serviceString)
+        {
+            string result = getFromWebService(serviceString.Replace("_", "/").Replace("*", "?"));
+            return result;
+        }
+
 
         [OperationContract]
         [WebGet(UriTemplate = "/test/NHCSystemInfo", ResponseFormat = WebMessageFormat.Json)]
@@ -135,7 +143,7 @@ namespace Website_TS
         public string NHCSystemInfo()
         {
             TcpClient clientSocket = new TcpClient();
-            string IP = "192.168.0.171";
+            string IP = "192.168.0.170";
             int port = 8000;
             clientSocket.Connect(IP, port);
 
@@ -156,7 +164,7 @@ namespace Website_TS
         public string NHCActions()
         {
             TcpClient clientSocket = new TcpClient();
-            string IP = "192.168.0.171";
+            string IP = "192.168.0.170";
             int port = 8000;
             clientSocket.Connect(IP, port);
           
@@ -188,7 +196,7 @@ namespace Website_TS
 
 
                       TcpClient clientSocket = new TcpClient();
-                      string IP = "192.168.0.171";
+                      string IP = "192.168.0.170";
                       int port = 8000;
                       clientSocket.Connect(IP, port);
 
@@ -202,10 +210,12 @@ namespace Website_TS
                       clientSocket.Close();
 
                       return response2;
-                      
                      
-
         }
+
+
+
+
 
         [OperationContract]
         [WebGet(UriTemplate = "test/NHCSet/{id}/{value}", ResponseFormat = WebMessageFormat.Json)]
@@ -256,7 +266,7 @@ namespace Website_TS
            
             byte[] outStream = Encoding.ASCII.GetBytes(sendString /*+ "$"*/);
             serverStream.Write(outStream, 0, outStream.Length);
-
+            System.Threading.Thread.Sleep(1000); //TESTING
             serverStream.Flush();
             byte[] inStream = new byte[100250];
             serverStream.Read(inStream, 0, (int)clientSocket.ReceiveBufferSize);
@@ -301,13 +311,13 @@ namespace Website_TS
             byte[] inStream = new byte[100250];
             serverStream.Read(inStream, 0, (int)clientSocket.ReceiveBufferSize);
 
-         /*   int i = inStream.Length - 1;
+            int i = inStream.Length - 1;
             while (inStream[i] == 0)
                 --i;
 
             byte[] result = new byte[i + 1];
             Array.Copy(inStream, result, i + 1);
-            */
+            
 
 
             string resultString = Encoding.ASCII.GetString(inStream);
