@@ -69,6 +69,86 @@ namespace Website_TS
         }
 
 
+        [OperationContract]
+        [WebGet(UriTemplate = "/{server}/getParameter/{pName}", ResponseFormat = WebMessageFormat.Json)]
+        public string getParameter(string server, string pName)
+        {
+            try
+            {
+                //
+                myConnection = new SqlConnection("server=" + server + "\\SQLEXPRESS;Trusted_Connection = no;user id=LocalProxy;password=LocalProxy;"); //LAPTOP
+                                                                                                                                                       //myConnection = new SqlConnection("server=WENDY-PC\\SQLEXPRESS;Trusted_Connection = yes;"); //SERVER
+                myConnection.Open();
+                double value = 0;
+                string stringValue = "0";
+                pName = "'" + pName + "'";
+                SqlCommand myCommand = new SqlCommand(
+                   "SELECT * FROM [CVLogger].[dbo].[Parameters] WHERE [key] = " + pName
+                  , myConnection);
+
+                SqlDataReader myReader = myCommand.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    stringValue = (myReader["value"].ToString());
+                }
+
+                //    double value = (double)myReader["value"];
+
+                myReader.Close();
+                myConnection.Close();
+
+                if (stringValue != null) value = Convert.ToDouble(stringValue);
+                string result = JsonConvert.SerializeObject(value);
+                return result;
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(e);
+            }
+            
+
+
+        }
+
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/{server}/setParameter/{pName}/{value}", ResponseFormat = WebMessageFormat.Json)]
+        public string setParameter(string server, string pName, string value)
+        {
+            try
+            {
+                //
+                myConnection = new SqlConnection("server=" + server + "\\SQLEXPRESS;Trusted_Connection = no;user id=LocalProxy;password=LocalProxy;"); //LAPTOP
+                                                                                                                                                       //myConnection = new SqlConnection("server=WENDY-PC\\SQLEXPRESS;Trusted_Connection = yes;"); //SERVER
+                myConnection.Open();
+                value = "'" + value + "'";
+                pName = "'" + pName + "'";
+                SqlCommand myCommand = new SqlCommand(
+                   "UPDATE [CVLogger].[dbo].[Parameters] SET [value] ="+value+" WHERE [key] = " + pName
+                  , myConnection);
+
+                SqlDataReader myReader = myCommand.ExecuteReader();
+
+               
+
+                myReader.Close();
+                myConnection.Close();
+
+                string result = JsonConvert.SerializeObject(value.Replace("'",""));
+                return result;
+            }
+            catch (Exception e)
+            {
+                return JsonConvert.SerializeObject(e);
+            }
+
+
+
+        }
+
+
+
 
         [OperationContract]
         [WebGet(UriTemplate = "/{server}/datalogcounters/{name}/{interval}/{number}", ResponseFormat = WebMessageFormat.Json)]
